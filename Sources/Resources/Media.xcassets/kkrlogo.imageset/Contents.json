@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "KKR Logo.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

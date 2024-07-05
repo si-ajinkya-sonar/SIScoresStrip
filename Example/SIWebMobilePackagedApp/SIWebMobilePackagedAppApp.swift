@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import SIScoresStrip
 
 @main
 struct SIWebMobilePackagedAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SwiftUIView()
         }
     }
 }

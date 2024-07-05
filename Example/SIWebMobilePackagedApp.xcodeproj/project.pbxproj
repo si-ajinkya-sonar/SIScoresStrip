@@ -11,6 +11,7 @@
 		29B3F4C12C370792001DFBBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F4C02C370792001DFBBC /* ContentView.swift */; };
 		29B3F4C32C370793001DFBBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29B3F4C22C370793001DFBBC /* Assets.xcassets */; };
 		29B3F4C62C370793001DFBBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29B3F4C52C370793001DFBBC /* Preview Assets.xcassets */; };
+		29B3F4CE2C3710D4001DFBBC /* SIScoresStrip in Frameworks */ = {isa = PBXBuildFile; productRef = 29B3F4CD2C3710D4001DFBBC /* SIScoresStrip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29B3F4CE2C3710D4001DFBBC /* SIScoresStrip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = SIWebMobilePackagedApp;
+			packageProductDependencies = (
+				29B3F4CD2C3710D4001DFBBC /* SIScoresStrip */,
+			);
 			productName = SIWebMobilePackagedApp;
 			productReference = 29B3F4BB2C370792001DFBBC /* SIWebMobilePackagedApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 29B3F4B22C370792001DFBBC;
+			packageReferences = (
+				29B3F4CC2C3710D4001DFBBC /* XCRemoteSwiftPackageReference "SIScoresStrip" */,
+			);
 			productRefGroup = 29B3F4BC2C370792001DFBBC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +352,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		29B3F4CC2C3710D4001DFBBC /* XCRemoteSwiftPackageReference "SIScoresStrip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/si-ajinkya-sonar/SIScoresStrip.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		29B3F4CD2C3710D4001DFBBC /* SIScoresStrip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29B3F4CC2C3710D4001DFBBC /* XCRemoteSwiftPackageReference "SIScoresStrip" */;
+			productName = SIScoresStrip;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29B3F4B32C370792001DFBBC /* Project object */;
 }
