@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct ScoreStripBasic: View {
-    private var scoresStripBasicModel: ScoresStripBasicModel
+    public var scoresStripBasicModel: ScoresStripBasicModel
     
     public init(scoresStripBasicModel: ScoresStripBasicModel) {
         self.scoresStripBasicModel = scoresStripBasicModel
