@@ -8,53 +8,34 @@
 import SwiftUI
 
 public struct ScoreStripBasic: View {
-    private var backgroundColor: Color = .clear
-    private var cardCornerRadius: CGFloat = 0
-    private var statusIndicatorColor: Color = .clear
+    private var scoresStripBasicModel: ScoresStripBasicModel
     
-    private var isActionButtonHidden: Bool = true
-    private var actionButtonBackground: Color = .clear
-    private var actionButtonForegroundColor: Color = .clear
-    
-    public init(backgroundColor: Color = .clear,
-                cardCornerRadius: CGFloat = 0,
-                statusIndicatorColor: Color = .clear) {
-        self.backgroundColor = backgroundColor
-        self.cardCornerRadius = cardCornerRadius
-        self.statusIndicatorColor = statusIndicatorColor
-    }
-    
-    public init(backgroundColor: Color = .clear,
-                cardCornerRadius: CGFloat = 0,
-                statusIndicatorColor: Color = .clear,
-                isActionButtonHidden: Bool = true,
-                actionButtonBackgroundColor: Color = .clear,
-                actionButtonForegroundColor: Color = .clear) {
-        self.backgroundColor = backgroundColor
-        self.cardCornerRadius = cardCornerRadius
-        self.statusIndicatorColor = statusIndicatorColor
-        self.isActionButtonHidden = isActionButtonHidden
-        self.actionButtonBackground = actionButtonBackgroundColor
-        self.actionButtonForegroundColor = actionButtonForegroundColor
+    public init(scoresStripBasicModel: ScoresStripBasicModel) {
+        self.scoresStripBasicModel = scoresStripBasicModel
     }
     
     public var body: some View {
         VStack(spacing: 30) {
-            Text("Ireland Provincial ODI Cup 2nd Match")
-                .padding(.all, 10)
-                .background(Color.red)
-                .cornerRadius(8, corners: [.topLeft, .topRight])
+            basicScoreStripTitleView
             VStack(spacing: 30) {
                 basicScoreStripHeaderView
                 basicScoresStripTeamDetailsView
-                if isActionButtonHidden == false {
+                if scoresStripBasicModel.hideActionButton == false {
                     basicScoresStripActionButtonView
                 }
             }
         }
         .padding(.all, 15)
-        .background(backgroundColor)
-        .cornerRadius(cardCornerRadius)
+        .background(scoresStripBasicModel.backgroundColor)
+        .cornerRadius(scoresStripBasicModel.cardCornerRadius)
+    }
+    
+    private var basicScoreStripTitleView: some View {
+        Text("Ireland Provincial ODI Cup 2nd Match")
+            .padding(.all, 10)
+            .background(scoresStripBasicModel.scoresStripTitleBackgroundColor)
+            .foregroundColor(scoresStripBasicModel.scoreStripTitleForegroundColor)
+            .cornerRadius(8, corners: [.topLeft, .topRight])
     }
     
     private var basicScoreStripHeaderView: some View {
@@ -63,7 +44,7 @@ public struct ScoreStripBasic: View {
             Spacer()
             Text("Upcoming")
                 .padding(.all, 5)
-                .background(statusIndicatorColor)
+                .background(scoresStripBasicModel.statusIndicatorColor)
                 .clipShape(.rect(cornerRadius: 8))
         }
     }
@@ -116,12 +97,12 @@ public struct ScoreStripBasic: View {
                 print("Action Button Tapped")
             } label: {
                 Text("Action Button")
-                    .foregroundColor(actionButtonForegroundColor)
+                    .foregroundColor(scoresStripBasicModel.actionButtonForegroundColor)
                     .bold()
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .background(actionButtonBackground)
+                    .background(scoresStripBasicModel.actionButtonBackground)
                     .clipShape(.capsule)
                     .shadow(radius: 10)
             }
@@ -130,5 +111,5 @@ public struct ScoreStripBasic: View {
 }
 
 #Preview {
-    ScoreStripBasic()
+    ScoreStripBasic(scoresStripBasicModel: ScoresStripBasicModel())
 }

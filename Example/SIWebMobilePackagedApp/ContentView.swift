@@ -6,16 +6,15 @@
 //
 
 import SwiftUI
+import SIScoresStrip
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            ScoreStripBasic(backgroundColor: .blue,
+                         cardCornerRadius: 10,
+                            statusIndicatorColor: .green, isActionButtonHidden: true, actionButtonBackgroundColor: .purple, actionButtonForegroundColor: .white)
         }
-        .padding()
     }
 }
 
