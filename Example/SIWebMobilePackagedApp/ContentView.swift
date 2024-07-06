@@ -11,6 +11,7 @@ import SIScoresStrip
 struct ContentView: View {
     var body: some View {
         VStack {
+            ScoreStripBasic(scoresStripBasicModel: ScoresStripBasicModel(backgroundColor: .yellow, scoresStripTitleBackgroundColor: .orange))
         }
     }
 }
