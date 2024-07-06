@@ -21,7 +21,7 @@ public struct ScoresStripBasicModel {
     
     public var scoreStripFont: Font? = nil
     
-    init(backgroundColor: Color = .clear, cardCornerRadius: CGFloat = .zero,
+    public init(backgroundColor: Color = .clear, cardCornerRadius: CGFloat = .zero,
          scoresStripTitleBackgroundColor: Color = .clear, scoreStripTitleForegroundColor: Color = .black,
          statusIndicatorColor: Color = .clear, hideActionButton: Bool = false,
          actionButtonBackground: Color = .clear, actionButtonForegroundColor: Color = .black,

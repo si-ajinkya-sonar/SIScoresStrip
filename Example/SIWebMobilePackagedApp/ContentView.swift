@@ -11,9 +11,7 @@ import SIScoresStrip
 struct ContentView: View {
     var body: some View {
         VStack {
-            ScoreStripBasic(backgroundColor: .blue,
-                         cardCornerRadius: 10,
-                            statusIndicatorColor: .green, isActionButtonHidden: true, actionButtonBackgroundColor: .purple, actionButtonForegroundColor: .white)
+            
         }
     }
 }
