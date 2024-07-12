@@ -11,7 +11,11 @@ import SIScoresStrip
 struct ContentView: View {
     var body: some View {
         VStack {
-            ScoreStripBasic(scoresStripBasicModel: ScoresStripBasicModel())
+            ScoreStripBasic(
+                scoresStripBasicModel:
+                    ScoresStripBasicModel(backgroundColor: .red, cardCornerRadius: 10, scoresStripTitleBackgroundColor: .yellow, scoreStripTitleForegroundColor: .black, hideActionButton: true)
+            )
+            .padding()
         }
     }
 }
