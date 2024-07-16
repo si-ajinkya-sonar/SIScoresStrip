@@ -19,6 +19,7 @@ struct SIUpcomingScoreStripTypeOne: View {
             upcomingScoreStripTopView
             upcomingScoresStripMiddleView
             Text("Amar Singh Club Ground, Srinagar")
+                .applyCustomSITextStyle(scoresStripTypeOneModel.resultStyle)
         }
         .padding(.horizontal, 15)
         .padding(.vertical, 15)
@@ -33,12 +34,11 @@ struct SIUpcomingScoreStripTypeOne: View {
     private var upcomingScoreStripTopView: some View {
         HStack {
             Text("Match 26")
-                .applyCustomSITextStyle(scoresStripTypeOneModel.headerTitleFont)
+                .applyCustomSITextStyle(scoresStripTypeOneModel.headerTitleStyle)
             Spacer()
             Text("Upcoming")
-                .font(scoresStripTypeOneModel.headerStatusFont)
+                .applyCustomSITextStyle(scoresStripTypeOneModel.headerStatusStyle)
                 .padding(.all, 5)
-                .foregroundColor(scoresStripTypeOneModel.headerStatusTitleForegroundColor)
                 .background(scoresStripTypeOneModel.headerStatusBackgroundColor)
                 .cornerRadius(scoresStripTypeOneModel.headerStatsCornerRadius)
         }
@@ -63,8 +63,7 @@ private struct ScoreStripTypeOneTeamInfoRightLogoView: View {
     var body: some View {
         HStack {
             Text("PBKS")
-                .font(.callout)
-                .foregroundColor(.black)
+                .applyCustomSITextStyle(scoresStripTypeOneModel.teamNameStyle)
             
             if let image = UIImage(named: "kkrlogo", in: .module, with: .none) {
                 Image(uiImage: image)
@@ -89,8 +88,7 @@ private struct ScoreStripTypeOneTeamInfoLeftLogoView: View {
             }
             
             Text("KKR")
-                .font(.callout)
-                .foregroundColor(.black)
+                .applyCustomSITextStyle(scoresStripTypeOneModel.teamNameStyle)
         }
     }
 }
@@ -103,10 +101,11 @@ private struct ScoreStripTypeOneDateTimeView: View {
             Text("Mar 17, 2024")
             Text("23:00")
         }
+        .applyCustomSITextStyle(scoresStripTypeOneModel.dateTimeStyle)
     }
 }
 
 #Preview {
     SIUpcomingScoreStripTypeOne(scoresStripTypeOneModel: SIScoresStripTypeOneModel(cardBackgroundColor: .green, cardCornerRadius: 8,
-                                                                                   headerStatusBackgroundColor: .purple, headerStatusTitleForegroundColor: .white, headerStatsCornerRadius: 3))
+                                                                                   headerStatusBackgroundColor: .purple, headerStatsCornerRadius: 3))
 }
