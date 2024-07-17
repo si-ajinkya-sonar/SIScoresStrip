@@ -18,11 +18,9 @@ struct SIUpcomingScoreStripTypeOne: View {
         VStack(spacing: 30) {
             upcomingScoreStripTopView
             upcomingScoresStripMiddleView
-            Text("Amar Singh Club Ground, Srinagar")
-                .applyCustomSITextStyle(scoresStripTypeOneModel.resultStyle)
+            upcomingScoresStripBottomView
         }
-        .padding(.horizontal, 15)
-        .padding(.vertical, 15)
+        .padding(.all, 15)
         .background(scoresStripTypeOneModel.cardBackgroundColor)
         .cornerRadius(scoresStripTypeOneModel.cardCornerRadius)
         .overlay(
@@ -55,6 +53,13 @@ struct SIUpcomingScoreStripTypeOne: View {
             }
         }
     }
+    
+    private var upcomingScoresStripBottomView: some View {
+        VStack {
+            Text("Amar Singh Club Ground, Srinagar")
+                .applyCustomSITextStyle(scoresStripTypeOneModel.resultStyle)
+        }
+    }
 }
 
 private struct ScoreStripTypeOneTeamInfoRightLogoView: View {
@@ -65,12 +70,10 @@ private struct ScoreStripTypeOneTeamInfoRightLogoView: View {
             Text("PBKS")
                 .applyCustomSITextStyle(scoresStripTypeOneModel.teamNameStyle)
             
-            if let image = UIImage(named: "kkrlogo", in: .module, with: .none) {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-            }
+            Image("kkrlogo", bundle: .module)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50)
         }
     }
 }
@@ -80,13 +83,10 @@ private struct ScoreStripTypeOneTeamInfoLeftLogoView: View {
     
     var body: some View {
         HStack {
-            if let image = UIImage(named: "kkrlogo", in: .module, with: .none) {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-            }
-            
+            Image("kkrlogo", bundle: .module)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50)
             Text("KKR")
                 .applyCustomSITextStyle(scoresStripTypeOneModel.teamNameStyle)
         }

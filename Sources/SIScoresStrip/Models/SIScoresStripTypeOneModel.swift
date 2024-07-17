@@ -40,23 +40,4 @@ public struct SIScoresStripTypeOneModel {
         self.dateTimeStyle = dateTimeStyle
         self.resultStyle = resultStyle
     }
-    
-    /*
-     public init(cardBackgroundColor: Color = .clear, cardCornerRadius: CGFloat = .zero,
-                 headerStatusFont: Font = .caption,
-                 headerTitleFont: SICustomTextStyle = SICustomTextStyle.defaultSICustomTextStyle,
-                 headerStatusBackgroundColor: Color = .clear, headerStatusTitleForegroundColor: Color = .black,
-                 headerStatsCornerRadius: CGFloat = .zero) {
-         self.cardBackgroundColor = cardBackgroundColor
-         self.cardCornerRadius = cardCornerRadius
-         
-         self.headerTitleFont = headerTitleFont
-         self.headerStatusFont = headerStatusFont
-         self.headerStatusBackgroundColor = headerStatusBackgroundColor
-         self.headerStatusTitleForegroundColor = headerStatusTitleForegroundColor
-         self.headerStatsCornerRadius = headerStatsCornerRadius
-         
-         
-     }
-     */
 }
