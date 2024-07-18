@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SIResultScoreStripTypeOne: View {
+    let scoresStripResultTypeOneModel: SIResultScoreStripTypeOneModel
+    
     var body: some View {
         VStack(spacing: 30) {
             resultsScoreStripTopView
@@ -56,5 +58,5 @@ struct SIResultScoreStripTypeOne: View {
 }
 
 #Preview {
-    SIResultScoreStripTypeOne()
+    SIResultScoreStripTypeOne(scoresStripResultTypeOneModel: SIResultScoreStripTypeOneModel())
 }

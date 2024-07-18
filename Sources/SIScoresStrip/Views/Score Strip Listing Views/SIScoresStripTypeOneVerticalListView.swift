@@ -8,16 +8,22 @@
 import SwiftUI
 
 public struct SIScoresStripTypeOneVerticalListView: View {
-    private let scoresStripTypeOneModel: SIScoresStripTypeOneModel
+    private let scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel
     
-    public init(scoresStripTypeOneModel: SIScoresStripTypeOneModel) {
-        self.scoresStripTypeOneModel = scoresStripTypeOneModel
+    public init(scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel) {
+        self.scoresStipTypeOneListingModel = scoresStipTypeOneListingModel
     }
     
     public var body: some View {
         List {
-            ForEach(0..<5) { _ in
-                SIUpcomingScoreStripTypeOne(scoresStripTypeOneModel: scoresStripTypeOneModel)
+            ForEach(0..<10) { index in
+                if index < 3 {
+                    SIUpcomingScoreStripTypeOne(scoresStripTypeOneModel: scoresStipTypeOneListingModel.upcomingScoreStripModel)
+                } else if index > 3 && index < 7 {
+                    SILiveScoreStripTypeOne(scoreStripLiveModelTypeOne: scoresStipTypeOneListingModel.liveScoreStripModel)
+                } else {
+                    SIResultScoreStripTypeOne(scoresStripResultTypeOneModel: scoresStipTypeOneListingModel.resultScoreStripModel)
+                }
             }
         }
         .listStyle(.plain)
@@ -25,5 +31,5 @@ public struct SIScoresStripTypeOneVerticalListView: View {
 }
 
 #Preview {
-    SIScoresStripTypeOneVerticalListView(scoresStripTypeOneModel: SIScoresStripTypeOneModel())
+    SIScoresStripTypeOneVerticalListView(scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel(upcomingScoreStripModel: SIUpcomingScoreStripTypeOneModel(), liveScoreStripModel: SILiveScoreStripTypeOneModel(), resultScoreStripModel: SIResultScoreStripTypeOneModel()))
 }

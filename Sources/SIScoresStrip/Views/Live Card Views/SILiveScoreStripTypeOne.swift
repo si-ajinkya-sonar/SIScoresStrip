@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SILiveScoreStripTypeOne: View {
+    let scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel
+    
     var body: some View {
         VStack(spacing: 30) {
             liveScoreStripTopView
@@ -26,8 +28,10 @@ struct SILiveScoreStripTypeOne: View {
     private var liveScoreStripTopView: some View {
         HStack {
             Text("Match 26")
+                .applyCustomSITextStyle(scoreStripLiveModelTypeOne.headerTitleStyle)
             Spacer()
             Text("Live")
+                .applyCustomSITextStyle(scoreStripLiveModelTypeOne.headerTitleStyle)
                 .padding(.all, 5)
                 .background(Color.red)
                 .cornerRadius(3)
@@ -38,13 +42,24 @@ struct SILiveScoreStripTypeOne: View {
         HStack {
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
                                                     teamName: "KKR")
+            .applyCustomSITextStyle(scoreStripLiveModelTypeOne.teamNameStyle)
+            
             SIScoreStripScoreDisplayView(scoresArr: Utility.shared.processString("28 (5.3) & 23/0 (1.0)"))
+                .applyCustomSITextStyle(scoreStripLiveModelTypeOne.scoresDisplayTextStyle)
+            
             Spacer()
+            
             Text("VS")
+                .applyCustomSITextStyle(scoreStripLiveModelTypeOne.versusTextStyle)
+            
             Spacer()
+            
             SIScoreStripScoreDisplayView(scoresArr: Utility.shared.processString("Yet to Bat"))
+                .applyCustomSITextStyle(scoreStripLiveModelTypeOne.scoresDisplayTextStyle)
+            
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
                                                     teamName: "PBKS")
+            .applyCustomSITextStyle(scoreStripLiveModelTypeOne.teamNameStyle)
         }
     }
     
@@ -52,10 +67,11 @@ struct SILiveScoreStripTypeOne: View {
         VStack {
             Text("Amar Singh Club Ground, Srinagar")
         }
+        .applyCustomSITextStyle(scoreStripLiveModelTypeOne.footerTitleStyle)
     }
     
 }
 
 #Preview {
-    SILiveScoreStripTypeOne()
+    SILiveScoreStripTypeOne(scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel())
 }

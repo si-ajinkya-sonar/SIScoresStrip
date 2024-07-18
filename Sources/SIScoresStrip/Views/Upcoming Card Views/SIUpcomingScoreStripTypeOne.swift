@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SIUpcomingScoreStripTypeOne: View {
-    private let scoresStripTypeOneModel: SIScoresStripTypeOneModel
+    private let scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel
     
-    public init(scoresStripTypeOneModel: SIScoresStripTypeOneModel) {
+    public init(scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel) {
         self.scoresStripTypeOneModel = scoresStripTypeOneModel
     }
     
@@ -35,10 +35,10 @@ struct SIUpcomingScoreStripTypeOne: View {
                 .applyCustomSITextStyle(scoresStripTypeOneModel.headerTitleStyle)
             Spacer()
             Text("Upcoming")
-                .applyCustomSITextStyle(scoresStripTypeOneModel.headerStatusStyle)
+                .applyCustomSITextStyle(scoresStripTypeOneModel.headerTitleStyle)
                 .padding(.all, 5)
-                .background(scoresStripTypeOneModel.headerStatusBackgroundColor)
-                .cornerRadius(scoresStripTypeOneModel.headerStatsCornerRadius)
+                .background(scoresStripTypeOneModel.statusBackgroundColor)
+                .cornerRadius(scoresStripTypeOneModel.statusCornerRadius)
         }
     }
     
@@ -57,13 +57,13 @@ struct SIUpcomingScoreStripTypeOne: View {
     private var upcomingScoresStripBottomView: some View {
         VStack {
             Text("Amar Singh Club Ground, Srinagar")
-                .applyCustomSITextStyle(scoresStripTypeOneModel.resultStyle)
+                .applyCustomSITextStyle(scoresStripTypeOneModel.footerTitleStyle)
         }
     }
 }
 
 private struct ScoreStripTypeOneTeamInfoRightLogoView: View {
-    let scoresStripTypeOneModel: SIScoresStripTypeOneModel
+    let scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel
     
     var body: some View {
         HStack {
@@ -79,7 +79,7 @@ private struct ScoreStripTypeOneTeamInfoRightLogoView: View {
 }
 
 private struct ScoreStripTypeOneTeamInfoLeftLogoView: View {
-    let scoresStripTypeOneModel: SIScoresStripTypeOneModel
+    let scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel
     
     var body: some View {
         HStack {
@@ -94,18 +94,18 @@ private struct ScoreStripTypeOneTeamInfoLeftLogoView: View {
 }
 
 private struct ScoreStripTypeOneDateTimeView: View {
-    let scoresStripTypeOneModel: SIScoresStripTypeOneModel
+    let scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel
     
     var body: some View {
         VStack {
             Text("Mar 17, 2024")
             Text("23:00")
         }
-        .applyCustomSITextStyle(scoresStripTypeOneModel.dateTimeStyle)
+        .applyCustomSITextStyle(scoresStripTypeOneModel.dateTimeTextStyle)
     }
 }
 
 #Preview {
-    SIUpcomingScoreStripTypeOne(scoresStripTypeOneModel: SIScoresStripTypeOneModel(cardBackgroundColor: .green, cardCornerRadius: 8,
-                                                                                   headerStatusBackgroundColor: .purple, headerStatsCornerRadius: 3))
+    SIUpcomingScoreStripTypeOne(scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel(cardBackgroundColor: .green, cardCornerRadius: 8,
+                                                                                          statusBackgroundColor: .purple, statusCornerRadius: 3))
 }
