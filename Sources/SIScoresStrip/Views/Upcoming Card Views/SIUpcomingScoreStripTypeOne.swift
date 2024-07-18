@@ -27,6 +27,9 @@ struct SIUpcomingScoreStripTypeOne: View {
             RoundedRectangle(cornerRadius: scoresStripTypeOneModel.cardCornerRadius)
                 .stroke(Color.black, lineWidth: 0.4)
         )
+        .onAppear {
+            print("Upcoming Test: \(scoresStripTypeOneModel.statusTitleStyle)")
+        }
     }
     
     private var upcomingScoreStripTopView: some View {
@@ -35,7 +38,7 @@ struct SIUpcomingScoreStripTypeOne: View {
                 .applyCustomSITextStyle(scoresStripTypeOneModel.headerTitleStyle)
             Spacer()
             Text("Upcoming")
-                .applyCustomSITextStyle(scoresStripTypeOneModel.headerTitleStyle)
+                .applyCustomSITextStyle(scoresStripTypeOneModel.statusTitleStyle)
                 .padding(.all, 5)
                 .background(scoresStripTypeOneModel.statusBackgroundColor)
                 .cornerRadius(scoresStripTypeOneModel.statusCornerRadius)
@@ -43,22 +46,21 @@ struct SIUpcomingScoreStripTypeOne: View {
     }
     
     private var upcomingScoresStripMiddleView: some View {
-        VStack {
-            HStack(alignment: .top) {
-                ScoreStripTypeOneTeamInfoRightLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel)
-                Spacer()
-                ScoreStripTypeOneDateTimeView(scoresStripTypeOneModel: scoresStripTypeOneModel)
-                Spacer()
-                ScoreStripTypeOneTeamInfoLeftLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel)
-            }
+        HStack(alignment: .top) {
+            ScoreStripTypeOneTeamInfoRightLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel)
+            Spacer()
+            ScoreStripTypeOneDateTimeView(scoresStripTypeOneModel: scoresStripTypeOneModel)
+            Spacer()
+            ScoreStripTypeOneTeamInfoLeftLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel)
         }
+        .frame(height: 70)
     }
     
     private var upcomingScoresStripBottomView: some View {
-        VStack {
-            Text("Amar Singh Club Ground, Srinagar")
-                .applyCustomSITextStyle(scoresStripTypeOneModel.footerTitleStyle)
-        }
+        Text("Amar Singh Club Ground, Srinagar")
+            .applyCustomSITextStyle(scoresStripTypeOneModel.footerTitleStyle)
+            .lineLimit(1)
+            .fixedSize(horizontal: true, vertical: false)
     }
 }
 
@@ -69,6 +71,8 @@ private struct ScoreStripTypeOneTeamInfoRightLogoView: View {
         HStack {
             Text("PBKS")
                 .applyCustomSITextStyle(scoresStripTypeOneModel.teamNameStyle)
+                .lineLimit(1)
+                .fixedSize(horizontal: true, vertical: false)
             
             Image("kkrlogo", bundle: .module)
                 .resizable()
@@ -89,6 +93,8 @@ private struct ScoreStripTypeOneTeamInfoLeftLogoView: View {
                 .frame(width: 50, height: 50)
             Text("KKR")
                 .applyCustomSITextStyle(scoresStripTypeOneModel.teamNameStyle)
+                .lineLimit(1)
+                .fixedSize(horizontal: true, vertical: false)
         }
     }
 }
@@ -106,6 +112,7 @@ private struct ScoreStripTypeOneDateTimeView: View {
 }
 
 #Preview {
-    SIUpcomingScoreStripTypeOne(scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel(cardBackgroundColor: .green, cardCornerRadius: 8,
-                                                                                          statusBackgroundColor: .purple, statusCornerRadius: 3))
+    SIUpcomingScoreStripTypeOne(scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel(
+        cardBackgroundColor: .clear, cardCornerRadius: 8,
+        statusBackgroundColor: .clear, statusCornerRadius: 3))
 }

@@ -37,7 +37,7 @@ struct SIResultScoreStripTypeOne: View {
     }
     
     private var resultsScoreStripMiddleView: some View {
-        HStack {
+        HStack(alignment: .top) {
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
                                                     teamName: "KKR")
             SIScoreStripScoreDisplayView(scoresArr: Utility.shared.processString("28 (5.3) & 23/0 (1.0)"))
@@ -48,12 +48,13 @@ struct SIResultScoreStripTypeOne: View {
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
                                                     teamName: "PBKS")
         }
+        .frame(height: 70)
     }
     
     private var resultsScoreStrippBottomView: some View {
-        VStack {
-            Text("KKR WON THE MATCH AGAINST PBKS")
-        }
+        Text("KKR WON THE MATCH AGAINST PBKS")
+            .lineLimit(1)
+            .fixedSize(horizontal: true, vertical: false)
     }
 }
 

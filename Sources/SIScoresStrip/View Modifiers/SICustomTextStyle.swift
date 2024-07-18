@@ -26,7 +26,7 @@ public struct SICustomTextStyle {
         self.systemFontStyle = systemFontStyle
     }
     
-    public static let defaultSICustomTextStyle = SICustomTextStyle(customFontName: nil, systemFontStyle: .body, 
+    public static let defaultSICustomTextStyle = SICustomTextStyle(customFontName: nil, systemFontStyle: .title, 
                                                                    color: .primary, size: 16,
                                                                    weight: .regular, design: .default
     )

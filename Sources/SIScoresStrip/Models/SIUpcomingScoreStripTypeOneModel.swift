@@ -13,17 +13,19 @@ public struct SIUpcomingScoreStripTypeOneModel: SIScoreStripTypeOneProtocol {
     public var headerTitleStyle: SICustomTextStyle
     public var statusBackgroundColor: Color
     public var statusCornerRadius: CGFloat
+    public var statusTitleStyle: SICustomTextStyle
     public var teamLogoCornerRadius: CGFloat
     public var teamNameStyle: SICustomTextStyle
     public var footerTitleStyle: SICustomTextStyle
     public var dateTimeTextStyle: SICustomTextStyle
     
-    public init(cardBackgroundColor: Color = .clear, cardCornerRadius: CGFloat = .zero, headerTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle, statusBackgroundColor: Color = .clear, statusCornerRadius: CGFloat = .zero, teamLogoCornerRadius: CGFloat = .zero, teamNameStyle: SICustomTextStyle = .defaultSICustomTextStyle, footerTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle, dateTimeTextStyle: SICustomTextStyle = .defaultSICustomTextStyle) {
+    public init(cardBackgroundColor: Color = .clear, cardCornerRadius: CGFloat = .zero, headerTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle, statusBackgroundColor: Color = .clear, statusCornerRadius: CGFloat = .zero, statusTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle ,teamLogoCornerRadius: CGFloat = .zero, teamNameStyle: SICustomTextStyle = .defaultSICustomTextStyle, footerTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle, dateTimeTextStyle: SICustomTextStyle = .defaultSICustomTextStyle) {
         self.cardBackgroundColor = cardBackgroundColor
         self.cardCornerRadius = cardCornerRadius
         self.headerTitleStyle = headerTitleStyle
         self.statusBackgroundColor = statusBackgroundColor
         self.statusCornerRadius = statusCornerRadius
+        self.statusTitleStyle = statusTitleStyle
         self.teamLogoCornerRadius = teamLogoCornerRadius
         self.teamNameStyle = teamNameStyle
         self.footerTitleStyle = footerTitleStyle

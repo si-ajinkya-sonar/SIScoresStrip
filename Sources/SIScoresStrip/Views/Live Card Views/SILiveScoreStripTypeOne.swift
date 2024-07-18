@@ -39,7 +39,7 @@ struct SILiveScoreStripTypeOne: View {
     }
     
     private var liveScoreStripMiddleView: some View {
-        HStack {
+        HStack(alignment: .top) {
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
                                                     teamName: "KKR")
             .applyCustomSITextStyle(scoreStripLiveModelTypeOne.teamNameStyle)
@@ -61,13 +61,14 @@ struct SILiveScoreStripTypeOne: View {
                                                     teamName: "PBKS")
             .applyCustomSITextStyle(scoreStripLiveModelTypeOne.teamNameStyle)
         }
+        .frame(height: 70)
     }
     
     private var liveScoreStrippBottomView: some View {
-        VStack {
-            Text("Amar Singh Club Ground, Srinagar")
-        }
+        Text("Amar Singh Club Ground, Srinagar")
         .applyCustomSITextStyle(scoreStripLiveModelTypeOne.footerTitleStyle)
+        .lineLimit(1)
+        .fixedSize(horizontal: true, vertical: false)
     }
     
 }

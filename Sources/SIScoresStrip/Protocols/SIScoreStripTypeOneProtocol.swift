@@ -13,6 +13,7 @@ public protocol SIScoreStripTypeOneProtocol {
     var headerTitleStyle: SICustomTextStyle {get}
     var statusBackgroundColor: Color {get}
     var statusCornerRadius: CGFloat {get}
+    var statusTitleStyle: SICustomTextStyle {get}
     var teamLogoCornerRadius: CGFloat {get}
     var teamNameStyle: SICustomTextStyle {get}
     var footerTitleStyle: SICustomTextStyle {get}
