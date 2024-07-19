@@ -51,6 +51,7 @@ struct SIScoresStripHorizontalListView: View {
             }
             Spacer()
         }
+        .frame(height: 230)
     }
 }
 
