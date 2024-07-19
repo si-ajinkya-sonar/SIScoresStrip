@@ -10,11 +10,13 @@ import SwiftUI
 struct SIScoreStripTypeOneVerticalTeamInfoView: View {
     let teamLogoImage: String
     let teamName: String
+    let scoreStripTypeOneProtocol: SIScoreStripTypeOneProtocol
     var body: some View {
         VStack(spacing: 10) {
             Image(teamLogoImage, bundle: .module)
                 .resizable()
                 .scaledToFit()
+                .cornerRadius(scoreStripTypeOneProtocol.teamLogoCornerRadius)
                 .frame(width: 50, height: 50)
             
             Text(teamName)
@@ -24,5 +26,5 @@ struct SIScoreStripTypeOneVerticalTeamInfoView: View {
 
 #Preview {
     SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
-                                            teamName: "KKR")
+                                            teamName: "KKR", scoreStripTypeOneProtocol: SILiveScoreStripTypeOneModel())
 }

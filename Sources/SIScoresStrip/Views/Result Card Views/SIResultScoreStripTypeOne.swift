@@ -31,22 +31,24 @@ struct SIResultScoreStripTypeOne: View {
             Spacer()
             Text("Result")
                 .padding(.all, 5)
-                .background(Color.red)
-                .cornerRadius(3)
+                .background(scoresStripResultTypeOneModel.statusBackgroundColor)
+                .cornerRadius(scoresStripResultTypeOneModel.statusCornerRadius)
         }
     }
     
     private var resultsScoreStripMiddleView: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .center) {
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
-                                                    teamName: "KKR")
+                                                    teamName: "KKR", 
+                                                    scoreStripTypeOneProtocol: scoresStripResultTypeOneModel)
             SIScoreStripScoreDisplayView(scoresArr: Utility.shared.processString("28 (5.3) & 23/0 (1.0)"))
             Spacer()
             Text("VS")
             Spacer()
             SIScoreStripScoreDisplayView(scoresArr: Utility.shared.processString("28 (5.3) & 21/2 (1.0)"))
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
-                                                    teamName: "PBKS")
+                                                    teamName: "PBKS", 
+                                                    scoreStripTypeOneProtocol: scoresStripResultTypeOneModel)
         }
         .frame(height: 70)
     }

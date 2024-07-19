@@ -33,15 +33,16 @@ struct SILiveScoreStripTypeOne: View {
             Text("Live")
                 .applyCustomSITextStyle(scoreStripLiveModelTypeOne.headerTitleStyle)
                 .padding(.all, 5)
-                .background(Color.red)
-                .cornerRadius(3)
+                .background(scoreStripLiveModelTypeOne.statusBackgroundColor)
+                .cornerRadius(scoreStripLiveModelTypeOne.statusCornerRadius)
         }
     }
     
     private var liveScoreStripMiddleView: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .center) {
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
-                                                    teamName: "KKR")
+                                                    teamName: "KKR",
+                                                    scoreStripTypeOneProtocol: scoreStripLiveModelTypeOne)
             .applyCustomSITextStyle(scoreStripLiveModelTypeOne.teamNameStyle)
             
             SIScoreStripScoreDisplayView(scoresArr: Utility.shared.processString("28 (5.3) & 23/0 (1.0)"))
@@ -58,7 +59,8 @@ struct SILiveScoreStripTypeOne: View {
                 .applyCustomSITextStyle(scoreStripLiveModelTypeOne.scoresDisplayTextStyle)
             
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
-                                                    teamName: "PBKS")
+                                                    teamName: "PBKS", 
+                                                    scoreStripTypeOneProtocol: scoreStripLiveModelTypeOne)
             .applyCustomSITextStyle(scoreStripLiveModelTypeOne.teamNameStyle)
         }
         .frame(height: 70)

@@ -46,7 +46,7 @@ struct SIUpcomingScoreStripTypeOne: View {
     }
     
     private var upcomingScoresStripMiddleView: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .center) {
             ScoreStripTypeOneTeamInfoRightLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel)
             Spacer()
             ScoreStripTypeOneDateTimeView(scoresStripTypeOneModel: scoresStripTypeOneModel)
@@ -77,6 +77,7 @@ private struct ScoreStripTypeOneTeamInfoRightLogoView: View {
             Image("kkrlogo", bundle: .module)
                 .resizable()
                 .scaledToFit()
+                .cornerRadius(scoresStripTypeOneModel.teamLogoCornerRadius)
                 .frame(width: 50, height: 50)
         }
     }
@@ -90,6 +91,7 @@ private struct ScoreStripTypeOneTeamInfoLeftLogoView: View {
             Image("kkrlogo", bundle: .module)
                 .resizable()
                 .scaledToFit()
+                .cornerRadius(scoresStripTypeOneModel.teamLogoCornerRadius)
                 .frame(width: 50, height: 50)
             Text("KKR")
                 .applyCustomSITextStyle(scoresStripTypeOneModel.teamNameStyle)
