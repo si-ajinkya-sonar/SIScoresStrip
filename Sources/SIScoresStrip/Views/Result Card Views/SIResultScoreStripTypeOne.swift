@@ -17,10 +17,10 @@ struct SIResultScoreStripTypeOne: View {
             resultsScoreStrippBottomView
         }
         .padding(.all, 15)
-        .background(Color.gray.opacity(0.3))
-        .cornerRadius(20)
+        .background(scoresStripResultTypeOneModel.cardBackgroundColor)
+        .cornerRadius(scoresStripResultTypeOneModel.cardCornerRadius)
         .overlay(
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: scoresStripResultTypeOneModel.cardCornerRadius)
                 .stroke(Color.black, lineWidth: 0.4)
         )
     }
@@ -37,7 +37,7 @@ struct SIResultScoreStripTypeOne: View {
     }
     
     private var resultsScoreStripMiddleView: some View {
-        HStack(alignment: .center) {
+        HStack(alignment: scoresStripResultTypeOneModel.scoresDisplayAlignment) {
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
                                                     teamName: "KKR", 
                                                     scoreStripTypeOneProtocol: scoresStripResultTypeOneModel)
@@ -55,6 +55,7 @@ struct SIResultScoreStripTypeOne: View {
     
     private var resultsScoreStrippBottomView: some View {
         Text("KKR WON THE MATCH AGAINST PBKS")
+            .applyCustomSITextStyle(scoresStripResultTypeOneModel.footerTitleStyle)
             .lineLimit(1)
             .fixedSize(horizontal: true, vertical: false)
     }

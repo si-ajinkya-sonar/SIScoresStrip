@@ -46,7 +46,7 @@ struct SIUpcomingScoreStripTypeOne: View {
     }
     
     private var upcomingScoresStripMiddleView: some View {
-        HStack(alignment: .center) {
+        HStack(alignment: scoresStripTypeOneModel.dateTimeDisplayAlignment) {
             ScoreStripTypeOneTeamInfoRightLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel)
             Spacer()
             ScoreStripTypeOneDateTimeView(scoresStripTypeOneModel: scoresStripTypeOneModel)

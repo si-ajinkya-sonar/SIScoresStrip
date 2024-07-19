@@ -17,10 +17,10 @@ struct SILiveScoreStripTypeOne: View {
             liveScoreStrippBottomView
         }
         .padding(.all, 15)
-        .background(Color.gray.opacity(0.3))
-        .cornerRadius(20)
+        .background(scoreStripLiveModelTypeOne.cardBackgroundColor)
+        .cornerRadius(scoreStripLiveModelTypeOne.cardCornerRadius)
         .overlay(
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: scoreStripLiveModelTypeOne.cardCornerRadius)
                 .stroke(Color.black, lineWidth: 0.4)
         )
     }
@@ -39,7 +39,7 @@ struct SILiveScoreStripTypeOne: View {
     }
     
     private var liveScoreStripMiddleView: some View {
-        HStack(alignment: .center) {
+        HStack(alignment: scoreStripLiveModelTypeOne.scoresDisplayAlignment) {
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
                                                     teamName: "KKR",
                                                     scoreStripTypeOneProtocol: scoreStripLiveModelTypeOne)

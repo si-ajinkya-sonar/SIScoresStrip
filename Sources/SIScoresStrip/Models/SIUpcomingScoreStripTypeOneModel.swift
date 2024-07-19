@@ -18,8 +18,9 @@ public struct SIUpcomingScoreStripTypeOneModel: SIScoreStripTypeOneProtocol {
     public var teamNameStyle: SICustomTextStyle
     public var footerTitleStyle: SICustomTextStyle
     public var dateTimeTextStyle: SICustomTextStyle
+    public var dateTimeDisplayAlignment: VerticalAlignment
     
-    public init(cardBackgroundColor: Color = .clear, cardCornerRadius: CGFloat = .zero, headerTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle, statusBackgroundColor: Color = .clear, statusCornerRadius: CGFloat = .zero, statusTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle ,teamLogoCornerRadius: CGFloat = .zero, teamNameStyle: SICustomTextStyle = .defaultSICustomTextStyle, footerTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle, dateTimeTextStyle: SICustomTextStyle = .defaultSICustomTextStyle) {
+    public init(cardBackgroundColor: Color = .clear, cardCornerRadius: CGFloat = .zero, headerTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle, statusBackgroundColor: Color = .clear, statusCornerRadius: CGFloat = .zero, statusTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle ,teamLogoCornerRadius: CGFloat = .zero, teamNameStyle: SICustomTextStyle = .defaultSICustomTextStyle, footerTitleStyle: SICustomTextStyle = .defaultSICustomTextStyle, dateTimeTextStyle: SICustomTextStyle = .defaultSICustomTextStyle, dateTimeDisplayAlignment: VerticalAlignment = .top) {
         self.cardBackgroundColor = cardBackgroundColor
         self.cardCornerRadius = cardCornerRadius
         self.headerTitleStyle = headerTitleStyle
@@ -30,5 +31,6 @@ public struct SIUpcomingScoreStripTypeOneModel: SIScoreStripTypeOneProtocol {
         self.teamNameStyle = teamNameStyle
         self.footerTitleStyle = footerTitleStyle
         self.dateTimeTextStyle = dateTimeTextStyle
+        self.dateTimeDisplayAlignment = dateTimeDisplayAlignment
     }
 }
