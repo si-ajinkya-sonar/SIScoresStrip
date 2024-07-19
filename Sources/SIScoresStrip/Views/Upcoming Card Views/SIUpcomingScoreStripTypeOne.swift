@@ -27,9 +27,6 @@ struct SIUpcomingScoreStripTypeOne: View {
             RoundedRectangle(cornerRadius: scoresStripTypeOneModel.cardCornerRadius)
                 .stroke(Color.black, lineWidth: 0.4)
         )
-        .onAppear {
-            print("Upcoming Test: \(scoresStripTypeOneModel.statusTitleStyle)")
-        }
     }
     
     private var upcomingScoreStripTopView: some View {

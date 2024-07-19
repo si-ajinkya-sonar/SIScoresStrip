@@ -9,6 +9,8 @@ import SwiftUI
 import SINetworking
 
 public struct SIScoresStripTypeOneListingView: View {
+    @StateObject private var scoresStripViewModel = SIScoresStripViewModel()
+    
     private let scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel
     
     public init(scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel) {
@@ -20,9 +22,19 @@ public struct SIScoresStripTypeOneListingView: View {
         case .vertical:
             SIScoresStripVerticalListView(count: 10,
                                           scoresStipTypeOneListingModel: scoresStipTypeOneListingModel)
+            .onAppear {
+                Task {
+                    await scoresStripViewModel.getMatchListingData()
+                }
+            }
         case .horizontal:
             SIScoresStripHorizontalListView(count: 10,
                                             scoresStipTypeOneListingModel: scoresStipTypeOneListingModel)
+            .onAppear {
+                Task {
+                    await scoresStripViewModel.getMatchListingData()
+                }
+            }
         }
     }
 }
