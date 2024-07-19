@@ -13,7 +13,10 @@ public struct SIScoresStripTypeOneListingModel {
     public var resultScoreStripModel: SIResultScoreStripTypeOneModel
     public var scoreStripListingType: SIScoreStripListingType
     
-    public init(upcomingScoreStripModel: SIUpcomingScoreStripTypeOneModel, liveScoreStripModel: SILiveScoreStripTypeOneModel, resultScoreStripModel: SIResultScoreStripTypeOneModel, scoreStripListingType: SIScoreStripListingType = .horizontal) {
+    public init(upcomingScoreStripModel: SIUpcomingScoreStripTypeOneModel, 
+                liveScoreStripModel: SILiveScoreStripTypeOneModel,
+                resultScoreStripModel: SIResultScoreStripTypeOneModel,
+                scoreStripListingType: SIScoreStripListingType = .horizontal) {
         self.upcomingScoreStripModel = upcomingScoreStripModel
         self.liveScoreStripModel = liveScoreStripModel
         self.resultScoreStripModel = resultScoreStripModel
