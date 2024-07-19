@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct SIScoresStripTypeOneVerticalListView: View {
+public struct SIScoresStripTypeOneListingView: View {
     private let scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel
     
     public init(scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel) {
@@ -78,7 +78,7 @@ struct SIScoresStripVerticalListView: View {
 }
 
 #Preview {
-    SIScoresStripTypeOneVerticalListView(scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel(
+    SIScoresStripTypeOneListingView(scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel(
         upcomingScoreStripModel: SIUpcomingScoreStripTypeOneModel(),
         liveScoreStripModel: SILiveScoreStripTypeOneModel(),
         resultScoreStripModel: SIResultScoreStripTypeOneModel(),
