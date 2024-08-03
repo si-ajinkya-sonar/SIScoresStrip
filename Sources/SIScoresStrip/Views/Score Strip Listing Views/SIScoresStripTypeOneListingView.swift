@@ -9,12 +9,13 @@ import SwiftUI
 import SINetworking
 
 public struct SIScoresStripTypeOneListingView: View {
-    @StateObject private var scoresStripViewModel = SIScoresStripViewModel()
+    @StateObject private var scoresStripViewModel: SIScoresStripViewModel
     
     private let scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel
     
     public init(scoresStipTypeOneListingModel: SIScoresStripTypeOneListingModel) {
         self.scoresStipTypeOneListingModel = scoresStipTypeOneListingModel
+        _scoresStripViewModel = StateObject(wrappedValue: SIScoresStripViewModel(url: scoresStipTypeOneListingModel.scoreListingUrl))
     }
     
     public var body: some View {

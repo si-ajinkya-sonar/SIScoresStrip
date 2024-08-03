@@ -2,15 +2,19 @@
 //  File.swift
 //  
 //
-//  Created by Nausheen Khan on 19/07/24.
+//  Created by Nausheen Khan on 02/08/24.
 //
 
+import Foundation
 import SwiftUI
 import SINetworking
 
-final class SIScoresStripViewModel: ObservableObject {
+@MainActor
+final class ScoresStripListingViewModel: ObservableObject {
     private let networkManager = SINetworkManager()
     private var matchesListingUrl: String?
+    
+    @Published var matchListingScoresData: [SIScoresStripMatchModel] = []
     
     init(url: String? = nil) {
         self.matchesListingUrl = url
@@ -24,6 +28,7 @@ final class SIScoresStripViewModel: ObservableObject {
         switch response {
         case .success(let returnedResponse):
             print("Returned Response:", returnedResponse)
+            self.matchListingScoresData = returnedResponse.matches ?? []
         case .failure(let error):
             print("Returned Error:", error)
         }

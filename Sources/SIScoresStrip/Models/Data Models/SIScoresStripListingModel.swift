@@ -12,12 +12,14 @@ struct SIScoresStripListingModel: Codable {
 }
 
 struct SIScoresStripMatchModel: Codable {
+    let matchId: String?
     let eventName: String?
     let venueName: String?
     let participants: [SIScoresStripMatchParticipant]?
     let eventState: SIScoreStripMatchEventState?
     
     enum CodingKeys: String, CodingKey {
+        case matchId = "match_id"
         case eventName = "event_name"
         case venueName = "venue_name"
         case eventState = "event_state"
