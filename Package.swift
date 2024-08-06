@@ -15,14 +15,14 @@ let package = Package(
             targets: ["SIScoresStrip"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/si-ajinkya-sonar/SINetworking", branch: "main")
+        .package(url: "https://github.com/sportzinteractive/wnm-boilerplate-ios.git", branch: "phase/development_staging")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "SIScoresStrip",
-            dependencies: ["SINetworking"],
+            dependencies: ["SIBoilerPlate"],
             path: "Sources",
             resources: [
                 .process("Resources")
