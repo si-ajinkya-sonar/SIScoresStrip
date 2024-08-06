@@ -9,9 +9,7 @@ import SwiftUI
 
 struct ScoresStripListingComponentWrapper: View, UIComponent {
     
-    var uniqueId: String {
-        return ComponentType.scorestrip.rawValue
-    }
+    let id = UUID()
     
     func render() -> AnyView {
         return AnyView(self)

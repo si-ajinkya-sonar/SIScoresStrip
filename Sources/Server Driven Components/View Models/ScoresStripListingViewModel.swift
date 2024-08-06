@@ -27,7 +27,6 @@ final class ScoresStripListingViewModel: ObservableObject {
         
         switch response {
         case .success(let returnedResponse):
-            print("Returned Response:", returnedResponse)
             self.matchListingScoresData = returnedResponse.matches ?? []
         case .failure(let error):
             print("Returned Error:", error)

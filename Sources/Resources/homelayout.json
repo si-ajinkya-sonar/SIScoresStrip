@@ -1,11 +1,38 @@
 {
-  "pageTitle": "Home",
-  "components": [
-    {
-      "type": "scorestrip",
-      "data": {
-        "fixturesUrl": "https://www.knightclub.in/default.aspx?methodtype=3&client=4737564702&sport=1&league=0&timezone=0530&language=&tournament=4723"
+   "pageTitle":"Home",
+   "components":[
+      {
+         "type":"scorestrip",
+         "data":{
+            "fixturesUrl":"https://www.knightclub.in/default.aspx?methodtype=3&client=4737564702&sport=1&league=0&timezone=0530&language=&tournament=4723",
+            "styles":{
+                "listStyle": "horizontal",
+                "horizontalPadding":20
+            },
+            "childComponents":[
+               {
+                  "type":"typeOne",
+                  "viewType":"upcoming",
+                  "styles":{
+                     "backgroundColor":"#FFFFFF"
+                  }
+               },
+               {
+                  "type":"typeOne",
+                  "viewType":"live",
+                  "styles":{
+                     "backgroundColor":"#FFFFFF"
+                  }
+               },
+               {
+                  "type":"typeOne",
+                  "viewType":"result",
+                  "styles":{
+                     "backgroundColor":"#FFFFFF"
+                  }
+               }
+            ]
+         }
       }
-    }
-  ]
+   ]
 }

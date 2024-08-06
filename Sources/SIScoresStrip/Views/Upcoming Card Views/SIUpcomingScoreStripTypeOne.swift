@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import SIBoilerPlate
 
 struct SIUpcomingScoreStripTypeOne: View {
     private let scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel
+    private let scoresStripDataModel: SIScoresStripMatchModel
+    private let scoresStripStyleDetail: ScoresStripListingUIModelChildStyles?
     
-    public init(scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel) {
+    public init(scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel, 
+                scoresStripDataModel: SIScoresStripMatchModel,
+                scoresStripStyleDetail: ScoresStripListingUIModelChildStyles? = nil) {
         self.scoresStripTypeOneModel = scoresStripTypeOneModel
+        self.scoresStripDataModel = scoresStripDataModel
+        self.scoresStripStyleDetail = scoresStripStyleDetail
     }
     
     var body: some View {
@@ -31,7 +38,7 @@ struct SIUpcomingScoreStripTypeOne: View {
     
     private var upcomingScoreStripTopView: some View {
         HStack {
-            Text("Match 26")
+            Text(scoresStripDataModel.eventName ?? .blank)
                 .applyCustomSITextStyle(scoresStripTypeOneModel.headerTitleStyle)
             Spacer()
             Text("Upcoming")
@@ -44,29 +51,34 @@ struct SIUpcomingScoreStripTypeOne: View {
     
     private var upcomingScoresStripMiddleView: some View {
         HStack(alignment: scoresStripTypeOneModel.dateTimeDisplayAlignment) {
-            ScoreStripTypeOneTeamInfoRightLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel)
+            ScoreStripTypeOneTeamInfoRightLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel, 
+                                                   scoresStripDataModel: scoresStripDataModel)
             Spacer()
             ScoreStripTypeOneDateTimeView(scoresStripTypeOneModel: scoresStripTypeOneModel)
             Spacer()
-            ScoreStripTypeOneTeamInfoLeftLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel)
+            ScoreStripTypeOneTeamInfoLeftLogoView(scoresStripTypeOneModel: scoresStripTypeOneModel, 
+                                                  scoresStripDataModel: scoresStripDataModel)
         }
         .frame(height: 70)
     }
     
     private var upcomingScoresStripBottomView: some View {
-        Text("Amar Singh Club Ground, Srinagar")
+        Text(scoresStripDataModel.venueName ?? .blank)
             .applyCustomSITextStyle(scoresStripTypeOneModel.footerTitleStyle)
-            .lineLimit(1)
-            .fixedSize(horizontal: true, vertical: false)
+            .lineLimit(2)
+            .multilineTextAlignment(.center)
+            .truncationMode(.tail)
+            .frame(maxWidth: .infinity, alignment: .center)
     }
 }
 
 private struct ScoreStripTypeOneTeamInfoRightLogoView: View {
     let scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel
+    let scoresStripDataModel: SIScoresStripMatchModel
     
     var body: some View {
         HStack {
-            Text("PBKS")
+            Text(scoresStripDataModel.participants?.first?.shortName ?? "")
                 .applyCustomSITextStyle(scoresStripTypeOneModel.teamNameStyle)
                 .lineLimit(1)
                 .fixedSize(horizontal: true, vertical: false)
@@ -82,6 +94,7 @@ private struct ScoreStripTypeOneTeamInfoRightLogoView: View {
 
 private struct ScoreStripTypeOneTeamInfoLeftLogoView: View {
     let scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel
+    let scoresStripDataModel: SIScoresStripMatchModel
     
     var body: some View {
         HStack {
@@ -90,7 +103,7 @@ private struct ScoreStripTypeOneTeamInfoLeftLogoView: View {
                 .scaledToFit()
                 .cornerRadius(scoresStripTypeOneModel.teamLogoCornerRadius)
                 .frame(width: 50, height: 50)
-            Text("KKR")
+            Text(scoresStripDataModel.participants?.last?.shortName ?? .blank)
                 .applyCustomSITextStyle(scoresStripTypeOneModel.teamNameStyle)
                 .lineLimit(1)
                 .fixedSize(horizontal: true, vertical: false)
@@ -110,8 +123,10 @@ private struct ScoreStripTypeOneDateTimeView: View {
     }
 }
 
-#Preview {
-    SIUpcomingScoreStripTypeOne(scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel(
-        cardBackgroundColor: .clear, cardCornerRadius: 8,
-        statusBackgroundColor: .clear, statusCornerRadius: 3))
-}
+/*
+ #Preview {
+     SIUpcomingScoreStripTypeOne(scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel(
+         cardBackgroundColor: .clear, cardCornerRadius: 8,
+         statusBackgroundColor: .clear, statusCornerRadius: 3))
+ }
+ */

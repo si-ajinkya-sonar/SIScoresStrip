@@ -9,6 +9,13 @@ import SwiftUI
 
 struct SILiveScoreStripTypeOne: View {
     let scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel
+    private let scoresStripDataModel: SIScoresStripMatchModel
+    
+    public init(scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel,
+                scoresStripDataModel: SIScoresStripMatchModel) {
+        self.scoreStripLiveModelTypeOne = scoreStripLiveModelTypeOne
+        self.scoresStripDataModel = scoresStripDataModel
+    }
     
     var body: some View {
         VStack(spacing: 30) {
@@ -27,7 +34,7 @@ struct SILiveScoreStripTypeOne: View {
     
     private var liveScoreStripTopView: some View {
         HStack {
-            Text("Match 26")
+            Text(scoresStripDataModel.eventName ?? .blank)
                 .applyCustomSITextStyle(scoreStripLiveModelTypeOne.headerTitleStyle)
             Spacer()
             Text("Live")
@@ -41,7 +48,7 @@ struct SILiveScoreStripTypeOne: View {
     private var liveScoreStripMiddleView: some View {
         HStack(alignment: scoreStripLiveModelTypeOne.scoresDisplayAlignment) {
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
-                                                    teamName: "KKR",
+                                                    teamName: scoresStripDataModel.participants?.first?.shortName ?? "",
                                                     scoreStripTypeOneProtocol: scoreStripLiveModelTypeOne)
             .applyCustomSITextStyle(scoreStripLiveModelTypeOne.teamNameStyle)
             
@@ -59,7 +66,7 @@ struct SILiveScoreStripTypeOne: View {
                 .applyCustomSITextStyle(scoreStripLiveModelTypeOne.scoresDisplayTextStyle)
             
             SIScoreStripTypeOneVerticalTeamInfoView(teamLogoImage: "kkrlogo",
-                                                    teamName: "PBKS", 
+                                                    teamName: scoresStripDataModel.participants?.last?.shortName ?? "",
                                                     scoreStripTypeOneProtocol: scoreStripLiveModelTypeOne)
             .applyCustomSITextStyle(scoreStripLiveModelTypeOne.teamNameStyle)
         }
@@ -67,14 +74,18 @@ struct SILiveScoreStripTypeOne: View {
     }
     
     private var liveScoreStrippBottomView: some View {
-        Text("Amar Singh Club Ground, Srinagar")
-        .applyCustomSITextStyle(scoreStripLiveModelTypeOne.footerTitleStyle)
-        .lineLimit(1)
-        .fixedSize(horizontal: true, vertical: false)
+        Text(scoresStripDataModel.venueName ?? .blank)
+            .applyCustomSITextStyle(scoreStripLiveModelTypeOne.footerTitleStyle)
+            .lineLimit(2)
+            .multilineTextAlignment(.center)
+            .truncationMode(.tail)
+            .frame(maxWidth: .infinity, alignment: .center)
     }
     
 }
 
-#Preview {
-    SILiveScoreStripTypeOne(scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel())
-}
+/*
+ #Preview {
+     SILiveScoreStripTypeOne(scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel())
+ }
+ */
