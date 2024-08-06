@@ -2,6 +2,9 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
+import Foundation
+
+let token = ProcessInfo.processInfo.environment["GITHUB_TOKEN"] ?? ""
 
 let package = Package(
     name: "SIScoresStrip",
@@ -15,7 +18,8 @@ let package = Package(
             targets: ["SIScoresStrip"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/si-ajinkya-sonar/SINetworking", branch: "main")
+        .package(url: "https://github.com/si-ajinkya-sonar/SINetworking", branch: "main"),
+        .package(url: "https://\(token)@github.com/sportzinteractive/wnm-boilerplate-ios.git", branch: "phase/development_staging")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
