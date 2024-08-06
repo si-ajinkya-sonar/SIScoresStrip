@@ -10,11 +10,14 @@ import SwiftUI
 struct SILiveScoreStripTypeOne: View {
     let scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel
     private let scoresStripDataModel: SIScoresStripMatchModel
+    private let scoresStripStyleDetail: ScoresStripListingUIModelChildStyles?
     
     public init(scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel,
-                scoresStripDataModel: SIScoresStripMatchModel) {
+                scoresStripDataModel: SIScoresStripMatchModel,
+                scoresStripStyleDetail: ScoresStripListingUIModelChildStyles? = nil) {
         self.scoreStripLiveModelTypeOne = scoreStripLiveModelTypeOne
         self.scoresStripDataModel = scoresStripDataModel
+        self.scoresStripStyleDetail = scoresStripStyleDetail
     }
     
     var body: some View {
@@ -24,11 +27,14 @@ struct SILiveScoreStripTypeOne: View {
             liveScoreStrippBottomView
         }
         .padding(.all, 15)
-        .background(scoreStripLiveModelTypeOne.cardBackgroundColor)
-        .cornerRadius(scoreStripLiveModelTypeOne.cardCornerRadius)
+        // .background(scoreStripLiveModelTypeOne.cardBackgroundColor)
+        .background(Color(hex: scoresStripStyleDetail?.backgroundColor ?? .blank))
+        // .cornerRadius(scoreStripLiveModelTypeOne.cardCornerRadius)
+        .cornerRadius(scoresStripStyleDetail?.cornerRadius ?? .zero)
         .overlay(
             RoundedRectangle(cornerRadius: scoreStripLiveModelTypeOne.cardCornerRadius)
                 .stroke(Color.black, lineWidth: 0.4)
+                .cornerRadius(scoresStripStyleDetail?.cornerRadius ?? .zero)
         )
     }
     

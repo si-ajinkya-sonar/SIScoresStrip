@@ -6,7 +6,7 @@
          "data":{
             "fixturesUrl":"https://www.knightclub.in/default.aspx?methodtype=3&client=4737564702&sport=1&league=0&timezone=0530&language=&tournament=4723",
             "styles":{
-                "listStyle": "horizontal",
+                "listStyle": "vertical",
                 "horizontalPadding":20
             },
             "childComponents":[
@@ -22,7 +22,7 @@
                   "type":"typeOne",
                   "viewType":"live",
                   "styles":{
-                     "backgroundColor":"#FFFFFF"
+                     "backgroundColor":"#DAF7A6"
                   }
                },
                {

@@ -80,7 +80,8 @@ struct ScoresStripListingComponentView: View, UIComponent {
             switch uiModel.childComponents?.first(where: {$0.viewType == .live})?.type {
             case ScoresStripListingUIModelChildComponents.ScoresStripType.typeOne.rawValue:
                 SILiveScoreStripTypeOne(scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel(),
-                                        scoresStripDataModel: data)
+                                        scoresStripDataModel: data,
+                                        scoresStripStyleDetail: uiModel.childComponents?.first(where: {$0.viewType == .live})?.styles)
                 
             default:
                 EmptyView()
