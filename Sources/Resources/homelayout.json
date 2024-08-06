@@ -14,7 +14,8 @@
                   "type":"typeOne",
                   "viewType":"upcoming",
                   "styles":{
-                     "backgroundColor":"#FFFFFF"
+                     "backgroundColor":"#FFBF00",
+                     "cornerRadius": 10
                   }
                },
                {

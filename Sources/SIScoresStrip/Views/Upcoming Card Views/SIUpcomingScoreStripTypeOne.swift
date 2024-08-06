@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SIBoilerPlate
 
 struct SIUpcomingScoreStripTypeOne: View {
     private let scoresStripTypeOneModel: SIUpcomingScoreStripTypeOneModel
@@ -28,11 +27,14 @@ struct SIUpcomingScoreStripTypeOne: View {
             upcomingScoresStripBottomView
         }
         .padding(.all, 15)
-        .background(scoresStripTypeOneModel.cardBackgroundColor)
-        .cornerRadius(scoresStripTypeOneModel.cardCornerRadius)
+        // .background(scoresStripTypeOneModel.cardBackgroundColor)
+        .background(Color(hex: scoresStripStyleDetail?.backgroundColor ?? .blank))
+        // .cornerRadius(scoresStripTypeOneModel.cardCornerRadius)
+        .cornerRadius(scoresStripStyleDetail?.cornerRadius ?? .zero)
         .overlay(
             RoundedRectangle(cornerRadius: scoresStripTypeOneModel.cardCornerRadius)
                 .stroke(Color.black, lineWidth: 0.4)
+                .cornerRadius(scoresStripStyleDetail?.cornerRadius ?? .zero)
         )
     }
     

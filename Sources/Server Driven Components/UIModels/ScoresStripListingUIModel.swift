@@ -64,4 +64,5 @@ public struct ScoresStripListingUIModelChildComponents: Codable, Hashable {
 
 public struct ScoresStripListingUIModelChildStyles: Codable {
     let backgroundColor: String?
+    let cornerRadius: Double?
 }
