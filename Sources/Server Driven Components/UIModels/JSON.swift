@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum DecodingError: Error {
     case dataCorruptedError
 }
