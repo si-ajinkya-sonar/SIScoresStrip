@@ -24,7 +24,10 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "SIScoresStrip",
-            dependencies: ["SINetworking", "SIBoilerPlate"],
+            dependencies: [
+                .product(name: "SIBoilerPlate", package: "wnm-boilerplate-ios"),
+                .product(name: "SINetworking", package: "SINetworking")
+            ],
             path: "Sources",
             resources: [
                 .process("Resources")
