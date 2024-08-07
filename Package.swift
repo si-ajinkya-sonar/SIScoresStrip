@@ -16,7 +16,7 @@ let package = Package(
             targets: ["SIScoresStrip"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/si-ajinkya-sonar/SINetworking", branch: "main"),
+        //.package(url: "https://github.com/si-ajinkya-sonar/SINetworking", branch: "main"),
         .package(url: "https://github.com/sportzinteractive/wnm-boilerplate-ios.git", branch: "feature/package_creation")
     ],
     targets: [
@@ -26,7 +26,7 @@ let package = Package(
             name: "SIScoresStrip",
             dependencies: [
                 .product(name: "SIBoilerPlate", package: "wnm-boilerplate-ios"),
-                .product(name: "SINetworking", package: "SINetworking")
+                //.product(name: "SINetworking", package: "SINetworking")
             ],
             path: "Sources",
             resources: [

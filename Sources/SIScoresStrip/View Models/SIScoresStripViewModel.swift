@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SINetworking
+import SIBoilerPlate
 
 final class SIScoresStripViewModel: ObservableObject {
     private let networkManager = SINetworkManager()
@@ -18,7 +18,7 @@ final class SIScoresStripViewModel: ObservableObject {
     
     func getMatchListingData() async {
         guard let matchesListingUrl else {return}
-        let response = await networkManager.makeGetServiceRequest(url: matchesListingUrl,
+        let response = await networkManager.createGetRequest(url: matchesListingUrl,
                                                                     type: SIScoresStripListingModel.self)
         
         switch response {

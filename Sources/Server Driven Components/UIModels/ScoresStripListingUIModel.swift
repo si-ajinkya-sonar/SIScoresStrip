@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import SINetworking
 
 public struct ScoresStripListingUIModel: Codable {
     public let fixturesUrl: String

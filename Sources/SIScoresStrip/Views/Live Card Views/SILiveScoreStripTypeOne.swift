@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SIBoilerPlate
 
 struct SILiveScoreStripTypeOne: View {
     let scoreStripLiveModelTypeOne: SILiveScoreStripTypeOneModel
